@@ -22,8 +22,11 @@ def write_buffer( buffer, filename, output_dir ):
 		return
 	path = os.path.join( output_dir, filename )
 	with open( path, 'w' ) as f:
+		f.write('%\n')  # opening percent
 		f.write( '\n'.join( buffer ) + '\n' )
+		f.write('%\n')  # closing percent
 	print( f"Wrote: {filename}" )
+
 
 def clean_output_dir( output_dir ):
 	if os.path.exists( output_dir ):
